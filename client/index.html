@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collaborative Canvas</h1>
+            <div class="user-info">
+                <span id="user-count">Users online: 0</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="tool-section">
+                    <h3>Tools</h3>
+                    <div class="tool-buttons">
+                        <button id="brush-tool" class="tool-btn active">Brush</button>
+                        <button id="eraser-tool" class="tool-btn">Eraser</button>
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Color</h3>
+                    <input type="color" id="color-picker" value="#000000">
+                </div>
+
+                <div class="tool-section">
+                    <h3>Stroke Width</h3>
+                    <input type="range" id="stroke-width" min="1" max="50" value="3">
+                    <span id="width-display">3px</span>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Actions</h3>
+                    <button id="undo-btn" class="action-btn">Undo</button>
+                    <button id="redo-btn" class="action-btn">Redo</button>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Online Users</h3>
+                    <ul id="user-list"></ul>
+                </div>
+            </aside>
+
+            <main class="canvas-container">
+                <canvas id="canvas"></canvas>
+                <canvas id="cursor-canvas"></canvas>
+            </main>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
